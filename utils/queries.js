@@ -1,4 +1,5 @@
 const queries = {
+    // ---------------------------------------Users
     getUsersByEmail: `
     SELECT username,email,password,img,role
     FROM users
@@ -15,7 +16,27 @@ const queries = {
     `,
     deleteUserByEmail: `DELETE FROM users
     WHERE email = $1;
+    `, // ---------------------------------------Markers
+    getMarkersByType: `
+    SELECT marker_id,title,type,x,y,z
+    FROM markers
+    WHERE type=$1;`,
+    getMarkerByTitle: `
+    SELECT marker_id,title,type,x,y,z
+    FROM markers
+    WHERE title=$1;`,
+    getAllMarkers: `SELECT m.marker_id,m.title,m.type,m.x,m.y,m.z
+    FROM markers AS m
+    ORDER BY m.marker_id;`,
+    createMarker: `INSERT INTO markers(title,type,x,y,z) 
+    VALUES ($1,$2,$3,$4,$5)
     `,
+    updateMarkerByTitle: `UPDATE markers
+    SET title = $1, type = $2, x = $3, y = $4, z =$5
+    WHERE title = $6
+    `,
+    deleteMarkerByTitle: `DELETE FROM markers
+    WHERE title = $1;`
     // getAllFavoritesFromUser: `SELECT f.favorite_id, f.user_id, f.mongo_title, f.mongo_id
     // FROM favorites AS f
     // INNER JOIN users AS u
