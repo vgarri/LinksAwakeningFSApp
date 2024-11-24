@@ -13,8 +13,10 @@ app.use(express.json());
 
 const userRoutes = require("./routes/user.routes")
 const DefaultMarkerRoutes = require("./routes/defaultMarker.routes")
+const markerRoutes = require("./routes/marker.routes")
 
-app.use('/api/user', userRoutes)
+app.use('/api/user', userRoutes);
+app.use('/api/marker', markerRoutes);
 app.use('/api/defaultmarkers', DefaultMarkerRoutes);
 
 

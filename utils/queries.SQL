@@ -1,4 +1,4 @@
-CREATE DATABASE backendfinalproject;
+
 
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
@@ -8,6 +8,16 @@ CREATE TABLE users (
     img VARCHAR(255) NOT NULL,
     role VARCHAR(10) DEFAULT 'user' CHECK (role IN ('admin', 'user'))
 );
+CREATE TABLE markers (
+    marker_id SERIAL PRIMARY KEY,
+    title VARCHAR(50) UNIQUE NOT NULL,
+    type VARCHAR(255) NOT NULL,
+    x int NOT NULL,
+    y int NOT NULL,
+    z int NOT NULL,
+
+);
+    -- role VARCHAR(10) DEFAULT 'user' CHECK (role IN ('admin', 'user'))
 
 CREATE TABLE completedMarkers (
     marker_id SERIAL PRIMARY KEY,
