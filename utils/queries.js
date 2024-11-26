@@ -18,36 +18,40 @@ const queries = {
     WHERE email = $1;
     `, // ---------------------------------------Markers
     getMarkersByType: `
-    SELECT marker_id,title,type,x,y,z
+    SELECT marker_id,marker_title,type,x,y,z
     FROM markers
     WHERE type=$1;`,
     getMarkerByTitle: `
-    SELECT marker_id,title,type,x,y,z
+    SELECT marker_id,marker_title,type,x,y,z
     FROM markers
-    WHERE title=$1;`,
-    getAllMarkers: `SELECT m.marker_id,m.title,m.type,m.x,m.y,m.z
+    WHERE marker_title=$1;`,
+    getAllMarkers: `SELECT m.marker_id,m.marker_title,m.type,m.x,m.y,m.z
     FROM markers AS m
     ORDER BY m.marker_id;`,
-    createMarker: `INSERT INTO markers(title,type,x,y,z) 
+    createMarker: `INSERT INTO markers(marker_title,type,x,y,z) 
     VALUES ($1,$2,$3,$4,$5)
     `,
     updateMarkerByTitle: `UPDATE markers
-    SET title = $1, type = $2, x = $3, y = $4, z =$5
-    WHERE title = $6
+    SET marker_title = $1, type = $2, x = $3, y = $4, z =$5
+    WHERE marker_title = $6
     `,
     deleteMarkerByTitle: `DELETE FROM markers
-    WHERE title = $1;`
-    // getAllFavoritesFromUser: `SELECT f.favorite_id, f.user_id, f.mongo_title, f.mongo_id
-    // FROM favorites AS f
-    // INNER JOIN users AS u
-    // ON f.user_id = u.id
-    // WHERE u.id = $1
+    WHERE marker_title = $1;
+    `, // ---------------------------------------Completed Markers
+    getAllCompletedMarkers: `SELECT c.completed_id, c.username, c.marker_title
+    FROM completedMarkers AS c
+    ORDER BY c.completed_id
+    `,
+    getCompletedMarkersByUsername:`SELECT c.completed_id, c.username, c.marker_title
+    FROM completedMarkers AS c
+    INNER JOIN users AS u
+    ON c.username = u.username
+    WHERE u.username = $1`,
+    createCompletedMarker: `INSERT INTO completedMarkers(username,marker_title) 
+    VALUES ($1,$2)
+    `,
+    deleteCompletedMarkerByTitle: `DELETE FROM completedMarkers
+    WHERE marker_title = $1;`
 
-    // `,
-    // markAsFavorite: `INSERT INTO favorites(user_id,mongo_title,mongo_id) 
-    // VALUES ($1,$2,$3)
-    // `,
-    // unmarkAsFavorite: `DELETE FROM favorites AS f
-    // WHERE f.favorite_id = $1`
 }
 module.exports = queries;

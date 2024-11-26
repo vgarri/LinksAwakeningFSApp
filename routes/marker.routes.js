@@ -5,10 +5,10 @@ const router = express.Router();
 
 
 router.get('/', markerController.getAllMarkers);
-router.get('/title',markerController.getMarkerByTitle);
+router.get('/marker_title',markerController.getMarkerByTitle);
 router.get('/type',markerController.getMarkersByType);
 router.post('/', markerController.createMarker);
-router.put('/email',markerController.updateMarkerByTitle);
-router.delete('/email', markerController.deleteMarkerByTitle);
+router.put('/marker_title',markerController.updateMarkerByTitle);
+router.delete('/marker_title', markerController.deleteMarkerByTitle);
 
 module.exports = router;

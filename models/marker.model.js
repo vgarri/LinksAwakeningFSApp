@@ -35,11 +35,11 @@ const getMarkersByType = async (type) => {
     }
     return result
 }
-const getMarkerByTitle = async (title) => {
+const getMarkerByTitle = async (marker_title) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.getMarkerByTitle, [title])
+        const data = await client.query(queries.getMarkerByTitle, [marker_title])
         result = data.rows
         
     } catch (err) {
@@ -52,13 +52,13 @@ const getMarkerByTitle = async (title) => {
 }
 // POST (CREATE)
 const createMarker = async (marker) => {
-    const { title, type, x, y, z } = marker;
+    const { marker_title, type, x, y, z } = marker;
     let client, result;
 
     
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createMarker,[title, type, x, y, z])
+        const data = await client.query(queries.createMarker,[marker_title, type, x, y, z])
         result = data.rowCount
     } catch (err) {
         console.log(err);
@@ -71,12 +71,12 @@ const createMarker = async (marker) => {
 
 //UPDATE
 const updateMarkerByTitle = async (updatedMarker, currentMarker) => {
-    const { title, type, x, y, z } = updatedMarker;
+    const { marker_title, type, x, y, z } = updatedMarker;
     let client, result;
     try {
         client = await pool.connect();
 
-        const data = await client.query(queries.updateMarkerByName, [title, type, x, y, z, currentMarker]);
+        const data = await client.query(queries.updateMarkerByName, [marker_title, type, x, y, z, currentMarker]);
         result = data.rows; // Devuelve la fila actualizada
     } catch (err) {
         console.log('Error updating marker:', err);

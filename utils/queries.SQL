@@ -1,5 +1,4 @@
 
-
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) UNIQUE NOT NULL,
@@ -10,21 +9,20 @@ CREATE TABLE users (
 );
 CREATE TABLE markers (
     marker_id SERIAL PRIMARY KEY,
-    title VARCHAR(50) UNIQUE NOT NULL,
+    marker_title VARCHAR(50) UNIQUE NOT NULL,
     type VARCHAR(255) NOT NULL,
     x int NOT NULL,
     y int NOT NULL,
-    z int NOT NULL,
+    z int NOT NULL
 
 );
-    -- role VARCHAR(10) DEFAULT 'user' CHECK (role IN ('admin', 'user'))
 
 CREATE TABLE completedMarkers (
-    marker_id SERIAL PRIMARY KEY,
-    user_id int NOT NULL,
-    mongo_title VARCHAR(255) NOT NULL,
-    mongo_id VARCHAR(255) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users(id)
+    completed_id SERIAL PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    marker_title VARCHAR(50) UNIQUE NOT NULL,
+    FOREIGN KEY (marker_title) REFERENCES markers(marker_title),
+    FOREIGN KEY (username) REFERENCES users(username)
 );
 
 -- Para crear usuarios no hace falta pasarle el rol, por defecto lo haremos con rol user. 
