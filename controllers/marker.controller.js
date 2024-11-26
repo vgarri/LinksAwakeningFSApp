@@ -45,8 +45,8 @@ const createMarker = async (req, res, next) => {
         const response = await Marker.createMarker(newMarker); 
         res.status(201).json({
             "items_created": response,
-            message: `Marker created: ${req.body.title}`,
-            title: newMarker.title,
+            message: `Marker created: ${req.body.marker_title}`,
+            marker_title: newMarker.marker_title,
             type: newMarker.type,
             x: newMarker.x,
             y: newMarker.y,
@@ -95,48 +95,7 @@ const deleteMarkerByTitle = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
-// const getAllFavoritesFromMarker = async (req, res) => {
-//     const id = req.params.id;
-//     console.log(id)
-//     try {
-//         const MarkerData = await Marker.getAllFavoritesFromMarker(id);
-//         if (MarkerData) {
-//             res.status(200).json(MarkerData);
-//         } else {
-//             res.status(404).json({ error: 'Marker not found' });
-//         }
-//     } catch (error) {
-//         console.error('Error obtaining favorites by email:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
-// const markAsFavorite = async (req, res) => {
-//     //mongo_id y mongo_title van a venir de un fetch, Marker_id viene del login(?)
-//     const newFavorite = req.body; // {Marker_id,mongo_title,mongo_id}
-//     const response = await Marker.markAsFavorite(newFavorite);
-//     res.status(201).json({
-//         "items_created": response,
-//         message: `New Favorite created for Marker: ${req.body.Marker_id}`,
-//         data: newFavorite
-//     });
-// }
-// const unmarkAsFavorite = async (req, res) => {
-//     const favorite_id = req.params.favorite_id; // {email} le pasaremos el email por el body
-//     try {
-//         const response = await Marker.unmarkAsFavorite(favorite_id);
-//         if (response) {
-//             res.status(200).json({
-//                 message: `favorite was deleted successfully`,
-//                 data: response
-//             });
-//         } else {
-//             res.status(404).json({ error: 'favorite was not found' });
-//         }
-//     } catch (error) {
-//         console.error('Error deleting Marker:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
+
 
 module.exports = {
     getAllMarkers,
@@ -144,9 +103,5 @@ module.exports = {
     getMarkerByTitle,
     createMarker,
     updateMarkerByTitle,
-    deleteMarkerByTitle,
-    // getAllFavoritesFromMarker,
-    // markAsFavorite,
-    // unmarkAsFavorite
-
+    deleteMarkerByTitle
 }
