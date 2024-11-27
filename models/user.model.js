@@ -146,11 +146,7 @@ const Users = {
     getUsersByEmail,
     createUser,
     updateUserByEmail,
-    deleteUserByEmail,
-    // getAllFavoritesFromUser,
-    // markAsFavorite,
-    // unmarkAsFavorite
-    
+    deleteUserByEmail 
 }
 
 module.exports = Users;
