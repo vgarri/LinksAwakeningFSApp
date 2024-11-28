@@ -14,12 +14,12 @@ app.use(cors())
 
 
 const userRoutes = require("./routes/user.routes")
-const completedMarkerRoutes = require("./routes/completedMarker.routes")
+const favoriteRoutes = require("./routes/favorite.routes")
 const markerRoutes = require("./routes/marker.routes")
 
 app.use('/api/user', userRoutes);
 app.use('/api/marker', markerRoutes);
-app.use('/api/completed', completedMarkerRoutes);
+app.use('/api/favorites', favoriteRoutes);
 
 
 

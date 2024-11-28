@@ -4,7 +4,7 @@ import {v4 as uuidv4} from "uuid";
 import PopupCard from "./PopupCard/PopupCard";
 
 const Map = () => {
-  const markers=[[51.505, -0.09],[51.505, -0.1],[51.506, -0.09]]
+  const markers=[[40.4168, -3.7038],[40.4178, -3.7030],[40.4237, -3.7034]]
   
   // const [markers, setMarkers] = useState("");
   const [favorites, setFavorites] = useState("");
@@ -35,7 +35,7 @@ const Map = () => {
 
 
   return <>
-  <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={false} style={{ height: "100vh", width: "1280px" }}>
+  <MapContainer center={[40.4168, -3.7038]} zoom={13} scrollWheelZoom={false} style={{ height: "100vh", width: "1280px" }}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

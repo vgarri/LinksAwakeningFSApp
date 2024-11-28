@@ -52,13 +52,13 @@ const getMarkerByTitle = async (marker_title) => {
 }
 // POST (CREATE)
 const createMarker = async (marker) => {
-    const { marker_title, type, x, y, z } = marker;
+    const { marker_title, type, url, address, lat, long } = marker; //marker_title,type,url,address,lat,long
     let client, result;
 
     
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createMarker,[marker_title, type, x, y, z])
+        const data = await client.query(queries.createMarker,[marker_title, type, url, address, lat, long])
         result = data.rowCount
     } catch (err) {
         console.log(err);
@@ -71,12 +71,12 @@ const createMarker = async (marker) => {
 
 //UPDATE
 const updateMarkerByTitle = async (updatedMarker, currentMarker) => {
-    const { marker_title, type, x, y, z } = updatedMarker;
+    const { marker_title, type, url, address, lat, long } = updatedMarker;
     let client, result;
     try {
         client = await pool.connect();
 
-        const data = await client.query(queries.updateMarkerByName, [marker_title, type, x, y, z, currentMarker]);
+        const data = await client.query(queries.updateMarkerByName, [marker_title, type, url, address, lat, long, currentMarker]);
         result = data.rows; // Devuelve la fila actualizada
     } catch (err) {
         console.log('Error updating marker:', err);
@@ -88,11 +88,11 @@ const updateMarkerByTitle = async (updatedMarker, currentMarker) => {
 };
 // DELETE
 const deleteMarkerByTitle = async (markerToDelete) => {
-    const title = markerToDelete;
+    const marker_title = markerToDelete;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.deleteMarkerByTitle, [title]);
+        const data = await client.query(queries.deleteMarkerByTitle, [marker_title]);
         result = data.rowCount
         
     } catch (err) {
@@ -103,52 +103,6 @@ const deleteMarkerByTitle = async (markerToDelete) => {
     }
     return result;
 };
-// GET BY EMAIL CONTROLLER PARAMS
-// const getAllFavoritesFromUser = async (id) => {
-//     let client, result;
-//     try {
-//         client = await pool.connect(); // Espera a abrir conexion
-//         const data = await client.query(queries.getAllFavoritesFromUser, [id])
-//         result = data.rows
-        
-//     } catch (err) {
-//         console.log(err);
-//         throw err;
-//     } finally {
-//         client.release();
-//     }
-//     return result
-// }
-// const markAsFavorite = async (favorite) => {
-//     const { user_id, mongo_title, mongo_id } = favorite;
-//     let client, result;
-//     try {
-//         client = await pool.connect(); // Espera a abrir conexion
-//         const data = await client.query(queries.markAsFavorite,[user_id, mongo_title, mongo_id])
-//         result = data.rowCount
-//     } catch (err) {
-//         console.log(err);
-//         throw err;
-//     } finally {
-//         client.release();
-//     }
-//     return result
-// }
-// const unmarkAsFavorite = async (favoriteid) => {
-//     let client, result;
-//     try {
-//         client = await pool.connect();
-//         const data = await client.query(queries.unmarkAsFavorite, [favoriteid]);
-//         result = data.rowCount
-        
-//     } catch (err) {
-//         console.log('Error unmarking favorite:', err);
-//         throw err;
-//     } finally {
-//         client.release();
-//     }
-//     return result;
-// };
 
 
 
@@ -159,9 +113,7 @@ const Marker = {
     createMarker,
     updateMarkerByTitle,
     deleteMarkerByTitle,
-    // getAllFavoritesFromUser,
-    // markAsFavorite,
-    // unmarkAsFavorite
+
     
 }
 
