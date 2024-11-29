@@ -16,42 +16,46 @@ const queries = {
     `,
     deleteUserByEmail: `DELETE FROM users
     WHERE email = $1;
-    `, // ---------------------------------------Markers
+    `, // ---------------------------------------Markers    
+
+
+
+    
     getMarkersByType: `
-    SELECT marker_id,marker_title,type,x,y,z
+    SELECT marker_id,marker_title,type,address,lat,long
     FROM markers
     WHERE type=$1;`,
     getMarkerByTitle: `
-    SELECT marker_id,marker_title,type,x,y,z
+    SELECT marker_id,marker_title,type,url,address,lat,long
     FROM markers
     WHERE marker_title=$1;`,
-    getAllMarkers: `SELECT m.marker_id,m.marker_title,m.type,m.x,m.y,m.z
+    getAllMarkers: `SELECT m.marker_id,m.marker_title,m.type,m.url,m.address,m.lat,m.long
     FROM markers AS m
     ORDER BY m.marker_id;`,
-    createMarker: `INSERT INTO markers(marker_title,type,x,y,z) 
-    VALUES ($1,$2,$3,$4,$5)
+    createMarker: `INSERT INTO markers(marker_title,type,url,address,lat,long) 
+    VALUES ($1,$2,$3,$4,$5,$6)
     `,
     updateMarkerByTitle: `UPDATE markers
-    SET marker_title = $1, type = $2, x = $3, y = $4, z =$5
-    WHERE marker_title = $6
+    SET marker_title = $1, type = $2, url=$3 ,address = $4, lat = $5, long = $6
+    WHERE marker_title = $7
     `,
     deleteMarkerByTitle: `DELETE FROM markers
     WHERE marker_title = $1;
-    `, // ---------------------------------------Completed Markers
-    getAllCompletedMarkers: `SELECT c.completed_id, c.username, c.marker_title
-    FROM completedMarkers AS c
-    ORDER BY c.completed_id
+    `, // ---------------------------------------Favorites
+    getAllFavoriteMarkers: `SELECT f.favorite_id, f.username, f.marker_title
+    FROM favoriteMarkers AS f
+    ORDER BY f.favorite_id
     `,
-    getCompletedMarkersByUsername:`SELECT c.completed_id, c.username, c.marker_title
-    FROM completedMarkers AS c
+    getFavoriteMarkersByUsername:`SELECT f.favorite_id, f.username, f.marker_title
+    FROM favoriteMarkers AS f
     INNER JOIN users AS u
-    ON c.username = u.username
+    ON f.username = u.username
     WHERE u.username = $1`,
-    createCompletedMarker: `INSERT INTO completedMarkers(username,marker_title) 
+    createFavoriteMarker: `INSERT INTO favoriteMarkers(username,marker_title) 
     VALUES ($1,$2)
     `,
-    deleteCompletedMarkerByTitle: `DELETE FROM completedMarkers
-    WHERE marker_title = $1;`
+    deleteFavoriteMarkerByUsernameAndTitle: `DELETE FROM favoriteMarkers
+    WHERE username = $1 AND marker_title = $2`
 
 }
 module.exports = queries;

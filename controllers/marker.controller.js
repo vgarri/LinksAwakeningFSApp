@@ -41,16 +41,17 @@ const getMarkersByType= async (req, res) => {
 const createMarker = async (req, res, next) => {
     try {
 
-        const newMarker = req.body; // title, type, x, y, z 
+        const newMarker = req.body; // title, type, url, address, lat long 
         const response = await Marker.createMarker(newMarker); 
         res.status(201).json({
             "items_created": response,
             message: `Marker created: ${req.body.marker_title}`,
             marker_title: newMarker.marker_title,
             type: newMarker.type,
-            x: newMarker.x,
-            y: newMarker.y,
-            z: newMarker.z
+            url: newMarker.url,
+            address: newMarker.address,
+            lat: newMarker.lat,
+            long: newMarker.long
         })
     
     } catch (error) {

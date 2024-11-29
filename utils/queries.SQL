@@ -11,14 +11,15 @@ CREATE TABLE markers (
     marker_id SERIAL PRIMARY KEY,
     marker_title VARCHAR(50) UNIQUE NOT NULL,
     type VARCHAR(255) NOT NULL,
-    x numeric NOT NULL,
-    y numeric NOT NULL,
-    z numeric NOT NULL
+    url VARCHAR(255) NOT NULL,
+    address VARCHAR(255) NOT NULL,
+    lat numeric NOT NULL,
+    long numeric NOT NULL
 
 );
 
-CREATE TABLE completedMarkers (
-    completed_id SERIAL PRIMARY KEY,
+CREATE TABLE favoriteMarkers (
+    favorite_id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
     marker_title VARCHAR(50) NOT NULL,
     FOREIGN KEY (marker_title) REFERENCES markers(marker_title),

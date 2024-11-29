@@ -1,15 +1,15 @@
-const pool = require('../config/db_pgSQL')
+const pool = require('../config/db_pgSQL.js')
 const queries = require('../utils/queries.js') // Queries SQL
 
 
 
 // GET
 
-const getAllCompletedMarkers = async () => {
+const getAllFavoriteMarkers = async () => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.getAllCompletedMarkers)
+        const data = await client.query(queries.getAllFavoriteMarkers)
         result = data.rows
     } catch (err) {
         console.log(err);
@@ -20,11 +20,11 @@ const getAllCompletedMarkers = async () => {
     return result
 }
 // GET BY username CONTROLLER PARAMS
-const getCompletedMarkersByUsername = async (username) => {
+const getFavoriteMarkersByUsername = async (username) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.getCompletedMarkersByUsername, [username])
+        const data = await client.query(queries.getFavoriteMarkersByUsername, [username])
         result = data.rows
         
     } catch (err) {
@@ -38,16 +38,16 @@ const getCompletedMarkersByUsername = async (username) => {
 
 // POST (CREATE)
 //Mark as completed
-const createCompletedMarker = async (completed) => {
+const createFavoriteMarker = async (completed) => {
     const { username, marker_title } = completed;
     let client, result;
 
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.createCompletedMarker,[username, marker_title])
+        const data = await client.query(queries.createFavoriteMarker,[username, marker_title])
         result = data.rowCount
     } catch (err) {
-        console.log('error marking as completed:', err);
+        console.log('error marking as fav:', err);
         throw err;
     } finally {
         client.release();
@@ -57,17 +57,17 @@ const createCompletedMarker = async (completed) => {
 
 
 // DELETE
-//unmark as completed
-const deleteCompletedMarkerByTitle = async (completedMarkerToDelete) => {
-    const marker_title = completedMarkerToDelete;
+//unmark as fav
+const deleteFavoriteMarkerByUsernameAndTitle = async (FavMarkerToDelete) => {
+    const { username, marker_title } = FavMarkerToDelete;
     let client, result;
     try {
         client = await pool.connect();
-        const data = await client.query(queries.deleteCompletedMarkerByTitle, [marker_title]);
+        const data = await client.query(queries.deleteFavoriteMarkerByUsernameAndTitle, [username, marker_title]);
         result = data.rowCount
         
     } catch (err) {
-        console.log('Error unmarking as completed:', err);
+        console.log('Error unmarking as fav:', err);
         throw err;
     } finally {
         client.release();
@@ -76,13 +76,13 @@ const deleteCompletedMarkerByTitle = async (completedMarkerToDelete) => {
 };
 
 
-const CompletedMarker = {
-    getAllCompletedMarkers,
-    getCompletedMarkersByUsername,
-    createCompletedMarker,
-    deleteCompletedMarkerByTitle
+const FavoriteMarker = {
+    getAllFavoriteMarkers,
+    getFavoriteMarkersByUsername,
+    createFavoriteMarker,
+    deleteFavoriteMarkerByUsernameAndTitle
 
     
 }
 
-module.exports = CompletedMarker;
+module.exports = FavoriteMarker;
