@@ -2,22 +2,42 @@ import React, {useState, useEffect} from "react";
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet';
 import {v4 as uuidv4} from "uuid";
 import PopupCard from "./PopupCard/PopupCard";
+import axios from "axios";
 
 const Map = () => {
-  const markers=[[40.4168, -3.7038],[40.4178, -3.7030],[40.4237, -3.7034]]
+  // const markers=[[40.4168, -3.7038],[40.4178, -3.7030],[40.4237, -3.7034]]
   
-  // const [markers, setMarkers] = useState("");
+  const [markers, setMarkers] = useState([]);
   const [favorites, setFavorites] = useState("");
+  
+  useEffect(() => {
+    const getMarkers = async () => {
+      try {
+        const resp = await axios.get(`http://localhost:3000/api/marker`)
+        console.log(resp.data)
+        setMarkers(resp.data)
+        
+      } catch (err) {
+        console.log(err)
+      }
+  
+    }
+  
+    getMarkers();
+  }, []);
+
   const renderMarkers = () => {
     return markers.map((marker, i) => <>
-                                        <Marker position={[marker[0],marker[1]]} key={uuidv4()}>
+                                        <Marker position={[marker.lat,marker.long]} key={uuidv4()}>
                                           <Popup>
-                                           <PopupCard favorite={favoriteMarker} unfavorite={unfavoriteMarker}/>
+                                           <PopupCard username={"ChetoReact"} data={marker} favorite={favoriteMarker} unfavorite={unfavoriteMarker}/>
                                           </Popup>
                                         </Marker> 
                                       </>);
   }
-  
+
+
+
   const favoriteMarker = (i) => {
     const favorites = 1;
     setFavorites(favorites)
