@@ -1,0 +1,13 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.pokemon-list {
+    background-color: #ffff;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    align-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+
+}

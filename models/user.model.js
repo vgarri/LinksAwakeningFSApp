@@ -92,6 +92,19 @@ const deleteUserByEmail = async (userToDelete) => {
     }
     return result;
 };
+const login = async (username, password) => {
+    let client, result;
+    try {
+        client = await pool.connect();
+        const userExists = await client.query(queries.login, [username, password]);
+        console.log(userExists);
+        return userExists;
+
+    } catch (error) {
+        console.log(error.message);
+        throw error
+    };
+};
 // GET BY EMAIL CONTROLLER PARAMS
 // const getAllFavoritesFromUser = async (id) => {
 //     let client, result;
@@ -146,7 +159,8 @@ const Users = {
     getUsersByEmail,
     createUser,
     updateUserByEmail,
-    deleteUserByEmail 
+    deleteUserByEmail,
+    login
 }
 
 module.exports = Users;

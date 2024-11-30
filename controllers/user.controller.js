@@ -1,5 +1,6 @@
 const User = require('../models/user.model'); // Importar el modelo de la BBDD
 // const { validationResult } = require("express-validator");
+const { createToken } = require('../config/jsonWebToken');
 
 const getAllUsers = async (req, res) => {
     let users;
@@ -88,6 +89,25 @@ const deleteUserByEmail = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+const login = async (req, res) => {
+    try {
+        const { username, password } = req.body;
+        const user = await User.login(username, password);
+        if (user) {
+            const token = createToken({ username: user.username });
+            res.status(200)
+                .set('Authorization', `Bearer ${token}`)
+                .cookie('access_token', token)
+                // .json({ role: user[0].role })
+                .send()
+        } else {
+            res.status(400).json({ msg: "wrong credentials" });
+        }
+
+    } catch (error) {
+        res.status(400).json({ msg: error.message });
+    }
+};
 // const getAllFavoritesFromUser = async (req, res) => {
 //     const id = req.params.id;
 //     console.log(id)
@@ -137,6 +157,7 @@ module.exports = {
     createUser,
     updateUserByEmail,
     deleteUserByEmail,
+    login
     // getAllFavoritesFromUser,
     // markAsFavorite,
     // unmarkAsFavorite
