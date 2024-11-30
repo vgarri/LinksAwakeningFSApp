@@ -1,0 +1,31 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    
+}
+.leaflet-popup-content-wrapper{
+    background-color: white !important;
+    text-align: center !important;
+  }
+
+body{
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    font-size: 100%;
+    margin: 0;
+    place-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color:black;
+}
+section{
+    display: flex;
+    justify-content: center;
+    border-radius: 8px;
+}
+h1,h3{
+    margin: 20px;
+}

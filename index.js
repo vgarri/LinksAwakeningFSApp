@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require ('cors');
+const path = require('path');
 
 const app = express() // inicializar servidor con express
 const port = 3000;
@@ -7,10 +8,16 @@ const port = 3000;
 
 const morgan = require("./middlewares/morgan")
 app.use(morgan(':method :url :status - :response-time ms :body'));
+app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(path.join(__dirname, 'client/build')));
 
 
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:5173',
+    credentials: true
+}));
 
 
 const userRoutes = require("./routes/user.routes")
@@ -27,7 +34,7 @@ app.use('/api/favorites', favoriteRoutes);
 
 
 
-
+app.get("*", (req, res) => { res.sendFile(path.join(__dirname + '/client/build/index.html')) });
 app.use('*', function(req, res){
     res.status(404).render('error', { statusCode: 400 })
 });

@@ -1,0 +1,173 @@
+[
+    {
+        "marker_title": "Wurlitzer Ballroom",
+        "type": "Rock Venue",
+        "url": "https://www.wurlitzerballroom.com/",
+        "address": "C/ de las 3 Cruces, 12",
+        "lat": "40.4193",
+        "long": "-3.7025"
+    },
+    {
+        "marker_title": "Sala Caracol",
+        "type": "Live Music Venue",
+        "url": "http://www.salacaracol.com/",
+        "address": "C/ de Bernardino Obregón, 18",
+        "lat": "40.4009",
+        "long": "-3.7092"
+    },
+    {
+        "marker_title": "La Riviera",
+        "type": "Concert Hall",
+        "url": "https://www.lariviera.com/",
+        "address": "C/ de Manzanares, 1",
+        "lat": "40.4136",
+        "long": "-3.7112"
+    },
+    {
+
+        "marker_title": "Sala Joy Eslava",
+        "type": "Live Music Venue",
+        "url": "https://www.joy-eslava.com/",
+        "address": "C/ del Arenal, 11",
+        "lat": "40.4185",
+        "long": "-3.7107"
+    },
+    {
+
+        "marker_title": "El Sol",
+        "type": "Live Music Venue",
+        "url": "https://www.salaelsol.com/",
+        "address": "C/ de los Jardines, 3",
+        "lat": "40.4191",
+        "long": "-3.7022"
+    },
+    {
+
+        "marker_title": "Teatro Barceló",
+        "type": "Concert Hall / Nightclub",
+        "url": "https://www.teatrobarcelo.com/",
+        "address": "C/ de Barceló, 11",
+        "lat": "40.4260",
+        "long": "-3.7145"
+    },
+    {
+
+        "marker_title": "Moby Dick Club",
+        "type": "Rock Venue",
+        "url": "https://www.moby-dick.com/",
+        "address": "C/ de la Virgen del Puerto, 57",
+        "lat": "40.4178",
+        "long": "-3.7162"
+    },
+    {
+
+        "marker_title": "Costello Club",
+        "type": "Live Music Venue",
+        "url": "http://www.costelloclub.com/",
+        "address": "C/ de Caballero de Gracia, 10",
+        "lat": "40.4202",
+        "long": "-3.7030"
+    },
+    {
+
+        "marker_title": "El Perro de la Parte de Atrás del Coche",
+        "type": "Live Music Venue",
+        "url": "https://www.elperrodelapartedetrasdelcoche.com/",
+        "address": "C/ de la Puebla, 15",
+        "lat": "40.4204",
+        "long": "-3.7101"
+    },
+    {
+
+        "marker_title": "WiZink Center",
+        "type": "Concert Hall",
+        "url": "https://www.wizinkcenter.es/",
+        "address": "Av. de Felipe II, s/n",
+        "lat": "40.4190",
+        "long": "-3.6733"
+    },
+
+
+    {
+
+        "marker_title": "Café La Palma",
+        "type": "Live Music Venue",
+        "url": "http://www.cafelapalma.com/",
+        "address": "C/ de la Palma, 62",
+        "lat": "40.4294",
+        "long": "-3.7169"
+    },
+    {
+        "marker_title": "Siroco",
+        "type": "Concert Hall / Club",
+        "url": "https://www.siroco.es/",
+        "address": "C/ de San Dimas, 3",
+        "lat": "40.4216",
+        "long": "-3.7177"
+    },
+    {
+        "marker_title": "El Intruso",
+        "type": "Live Music Venue",
+        "url": "http://www.elintruso.com/",
+        "address": "C/ de la Princesa, 1",
+        "lat": "40.4369",
+        "long": "-3.7112"
+    },
+    {
+        "marker_title": "Sala El Sol",
+        "type": "Live Music Venue",
+        "url": "https://www.salaelsol.com/",
+        "address": "C/ de los Jardines, 3",
+        "lat": "40.4191",
+        "long": "-3.7022"
+    },
+    {
+        "marker_title": "Moby Dick Club",
+        "type": "Rock Venue",
+        "url": "https://www.moby-dick.com/",
+        "address": "C/ de la Virgen del Puerto, 57",
+        "lat": "40.4178",
+        "long": "-3.7162"
+    },
+    {
+        "marker_title": "Sala BarCo",
+        "type": "Live Music Venue",
+        "url": "https://www.salabarco.com/",
+        "address": "C/ de Barco, 34",
+        "lat": "40.4269",
+        "long": "-3.7101"
+    },
+    {
+        "marker_title": "La Casa de la Radio",
+        "type": "Concert Hall / Event Venue",
+        "url": "https://www.rtve.es/espacioabierto/",
+        "address": "C/ de Prado, 1",
+        "lat": "40.4135",
+        "long": "-3.7126"
+    },
+    {
+        "marker_title": "Sala El Sol",
+        "type": "Live Music Venue",
+        "url": "http://www.salaelsol.com/",
+        "address": "C/ de los Jardines, 3",
+        "lat": "40.4191",
+        "long": "-3.7022"
+    },
+    {
+        "marker_title": "Mad Cool Festival",
+        "type": "Festival Venue",
+        "url": "https://madcoolfestival.es/",
+        "address": "C/ de la Vía de Dublín, 28022",
+        "lat": "40.4191",
+        "long": "-3.6237"
+    },
+    {
+        "marker_id": 20,
+        "marker_title": "Café Berlín",
+        "type": "Jazz Club",
+        "url": "http://www.cafeberlin.es/",
+        "address": "C/ de Costanilla de los Ángeles, 20",
+        "lat": "40.4164",
+        "long": "-3.7058"
+    }
+]

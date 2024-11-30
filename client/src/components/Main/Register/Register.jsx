@@ -58,9 +58,10 @@ const Register = (props) => {
         method: 'post',
         url: 'http://localhost:3000/api/user/',
         data: { username, email, password, img }
-    
+
       });
       if (request.status === 201) {
+        alert(`user: ${email} was successfully registered`)
         setMessage(`user: ${email} was successfully registered`);
         setTimeout(() => setMessage(""), 3000);
       }
@@ -73,20 +74,22 @@ const Register = (props) => {
 
 
 
-//username, email, password, img
+  //username, email, password, img
 
   return <div className="register">
-<input type="text" placeholder="username" onChange={handleUsername} /><br/>
-<input type="text" placeholder="email" onChange={handleEmail} /><br/>
-<input type="password" placeholder="password" onChange={handlePassword} /><br/>
-<input type="text" placeholder="img" onChange={handleImg} /><br/>
+    <input type="text" placeholder="username" onChange={handleUsername} /><br />
+    <input type="text" placeholder="email" onChange={handleEmail} /><br />
+    <input type="password" placeholder="password" onChange={handlePassword} /><br />
+    <input type="text" placeholder="img" onChange={handleImg} /><br />
 
-
-<button onClick={handleRegister}>Register</button><br/>
-{emailMessage ? <span>{emailMessage}</span> : ""}<br/>
-{passwordMessage ? <span>{passwordMessage}</span> : ""}<br/>
-<span>{message}</span><br/>
-</div>;
+    <article className="botonera">
+      <button onClick={handleRegister}>Register</button>
+    </article>
+  
+    {emailMessage ? <span>{emailMessage}</span> : ""}<br />
+    {passwordMessage ? <span>{passwordMessage}</span> : ""}<br />
+    <span>{message}</span><br />
+  </div>;
 
 };
 

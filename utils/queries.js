@@ -16,7 +16,12 @@ const queries = {
     `,
     deleteUserByEmail: `DELETE FROM users
     WHERE email = $1;
-    `, // ---------------------------------------Markers    
+    `, 
+    login: `SELECT *
+    FROM users
+    WHERE username= $1 AND password= $2
+    `,
+    // ---------------------------------------Markers    
 
 
 

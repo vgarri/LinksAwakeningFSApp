@@ -21,7 +21,7 @@ CREATE TABLE markers (
 CREATE TABLE favoriteMarkers (
     favorite_id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    marker_title VARCHAR(50) NOT NULL,
+    marker_title VARCHAR(50) UNIQUE NOT NULL,
     FOREIGN KEY (marker_title) REFERENCES markers(marker_title),
     FOREIGN KEY (username) REFERENCES users(username)
 );
