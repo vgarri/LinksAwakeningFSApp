@@ -22,6 +22,20 @@ const getUsersByEmail = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 }
+const getUsersByUsername = async (req, res) => {
+    const { username } = req.query;
+    try {
+        const userData = await User.getUsersByUsername(username);
+        if (userData) {
+            res.status(200).json(userData);
+        } else {
+            res.status(404).json({ error: 'User not found' });
+        }
+    } catch (error) {
+        console.error('Error obtaining user by username:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+}
 
 // Crear usuario //Post
 
@@ -35,7 +49,7 @@ const createUser = async (req, res, next) => {
         //     });
         // }
         const newUser = req.body; // {username,email,password, img}
-        const response = await User.createUser(newUser); 
+        const response = await User.createUser(newUser);
         res.status(201).json({
             "items_created": response,
             message: `User created: ${req.body.email}`,
@@ -54,8 +68,8 @@ const createUser = async (req, res, next) => {
 }
 
 const updateUserByEmail = async (req, res) => {
-    const { email } = req.query; 
-    const updatedUserData = req.body; 
+    const { email } = req.query;
+    const updatedUserData = req.body;
     try {
         const response = await User.updateUserByEmail(email);
         if (response) {
@@ -108,56 +122,27 @@ const login = async (req, res) => {
         res.status(400).json({ msg: error.message });
     }
 };
-// const getAllFavoritesFromUser = async (req, res) => {
-//     const id = req.params.id;
-//     console.log(id)
-//     try {
-//         const userData = await User.getAllFavoritesFromUser(id);
-//         if (userData) {
-//             res.status(200).json(userData);
-//         } else {
-//             res.status(404).json({ error: 'User not found' });
-//         }
-//     } catch (error) {
-//         console.error('Error obtaining favorites by email:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
-// const markAsFavorite = async (req, res) => {
-//     //mongo_id y mongo_title van a venir de un fetch, user_id viene del login(?)
-//     const newFavorite = req.body; // {user_id,mongo_title,mongo_id}
-//     const response = await User.markAsFavorite(newFavorite);
-//     res.status(201).json({
-//         "items_created": response,
-//         message: `New Favorite created for user: ${req.body.user_id}`,
-//         data: newFavorite
-//     });
-// }
-// const unmarkAsFavorite = async (req, res) => {
-//     const favorite_id = req.params.favorite_id; // {email} le pasaremos el email por el body
-//     try {
-//         const response = await User.unmarkAsFavorite(favorite_id);
-//         if (response) {
-//             res.status(200).json({
-//                 message: `favorite was deleted successfully`,
-//                 data: response
-//             });
-//         } else {
-//             res.status(404).json({ error: 'favorite was not found' });
-//         }
-//     } catch (error) {
-//         console.error('Error deleting user:', error);
-//         res.status(500).json({ error: 'Internal server error' });
-//     }
-// }
+const logout = async (req, res) => {
+    try {
+        res.status(200)
+            .set('Authorization', "")
+            .cookie('access_token', "")
+            .send();
+    } catch (error) {
+        res.status(400).json({ msg: error.message });
+
+    }
+};
 
 module.exports = {
     getAllUsers,
     getUsersByEmail,
+    getUsersByUsername,
     createUser,
     updateUserByEmail,
     deleteUserByEmail,
-    login
+    login,
+    logout
     // getAllFavoritesFromUser,
     // markAsFavorite,
     // unmarkAsFavorite

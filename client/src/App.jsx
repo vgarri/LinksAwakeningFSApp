@@ -6,6 +6,7 @@ import Footer from './components/Footer/Footer'
 import { userContext } from './context/userContext'
 import { BrowserRouter } from 'react-router-dom'
 
+
 function App() {
   
   const [loggedUser, setLoggedUser] = useState({

@@ -17,7 +17,9 @@ const Map = () => {
     const getMarkers = async () => {
       try {
         const resp = await axios.get(`http://localhost:3000/api/marker`)
-        console.log(resp.data)
+        if(resp > 0) {
+          console.log("markers received from API")
+        }
         setMarkers(resp.data)
         
       } catch (err) {

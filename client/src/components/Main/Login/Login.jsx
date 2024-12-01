@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import { userContext } from "../../../context/userContext";
+import { useNavigate } from "react-router-dom";
 
 const Login = (props) => {
     const [username, setUsername] = useState("");
@@ -17,7 +18,9 @@ const Login = (props) => {
                     method: 'get',
                     url: 'http://localhost:3000/api/user/',
                 })
-                console.log(request.data);
+                if(request.data > 0){
+                    console.log("connected to server")
+                };
             } catch (error) {
                 console.log(error.message);
             }
@@ -25,14 +28,6 @@ const Login = (props) => {
         testConnection();
     }, [])
 
-    // useEffect(() => {
-    //   const emailValidation = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
-    //   if (!emailValidation.test(email) && email.length > 0) {
-    //     setEmailMessage("Email must have a valid format");
-    //   } else {
-    //     setEmailMessage("");
-    //   }
-    // }, [username])
 
     useEffect(() => {
         const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{9,}$/
@@ -57,21 +52,35 @@ const Login = (props) => {
                 data: { username, password },
                 withCredentials: true
             });
+
             if (response.status === 200) {
-                alert(`Welcome Back, ${username}!`)
-                setMessage(`user: ${username} was successfully logged`);
+                // alert(`Welcome Back, ${username}!`)
+                updateLoggedUser({
+                    username: username,
+                    password: password
+                });
+                setMessage(`Welcome back, ${username}!`);
                 setTimeout(() => setMessage(""), 3000);
+
+                setUsername("");
+                setPassword("");
+
+                // useNavigate("/map")
             }
+            // if (response.status === 400) {
+            //     alert(`Wrong credentials`)
+            // }
+
             const authHeader = response.headers.authorization;
 
             axios.defaults.headers.common['Authorization'] = authHeader;
-            updateLoggedUser({
-                username: username,
-                password: password
-            });
-            setMessage(`Authorisation Header ${authHeader}`);
+
+            // setMessage(`Authorisation Header ${authHeader}`);
 
         } catch (error) {
+            // alert(`Wrong credentials`)
+            setMessage(`Wrong credentials`);
+            setTimeout(() => setMessage(""), 3000);
             console.log(error.message);
         }
     };
@@ -79,11 +88,14 @@ const Login = (props) => {
 
 
 
-    return <div className="home">
-        <input type="text" placeholder="username" onChange={handleUsername} /><br />
-        <input type="password" placeholder="password" onChange={handlePassword} /><br />
+    return <div className="loginForm">
+        <input type="text" placeholder="username" onChange={handleUsername} />
+        <input type="password" placeholder="password" onChange={handlePassword} />
+        {message ? <article className="messageFlag">
         {passwordMessage ? <span>{passwordMessage}</span> : ""}
         <span>{message}</span>
+        </article> : ""}
+        
         <article className="botonera">
             <button onClick={handleLogin}>Login</button>
         </article>

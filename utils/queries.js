@@ -4,6 +4,10 @@ const queries = {
     SELECT username,email,password,img,role
     FROM users
     WHERE email=$1;`,
+    getUsersByUsername:`   
+    SELECT username,email,password
+    FROM users
+    WHERE username=$1;`,
     getAllUsers: `SELECT u.id,u.username,u.email,u.password,u.img,u.role
     FROM users AS u
     ORDER BY u.id;`,

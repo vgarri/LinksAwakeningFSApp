@@ -36,6 +36,21 @@ const getUsersByEmail = async (email) => {
     }
     return result
 }
+const getUsersByUsername = async (username) => {
+    let client, result;
+    try {
+        client = await pool.connect(); // Espera a abrir conexion
+        const data = await client.query(queries.getUsersByUsername, [username])
+        result = data.rows
+        
+    } catch (err) {
+        console.log(err);
+        throw err;
+    } finally {
+        client.release();
+    }
+    return result
+}
 
 // POST (CREATE)
 const createUser = async (user) => {
@@ -96,15 +111,23 @@ const login = async (username, password) => {
     let client, result;
     try {
         client = await pool.connect();
-        const userExists = await client.query(queries.login, [username, password]);
-        console.log(userExists);
+        const storedUser = await client.query(queries.getUsersByUsername, [username]);
+        //console.log(storedUser)
+        const comparePW = await bcrypt.compare(password, storedUser.rows[0].password); // un-hasheamos contraseña
+        if (!comparePW) {
+            throw new Error('Incorrect Password');
+        }
+        else {
+        const userExists = await client.query(queries.login, [username, storedUser.rows[0].password]);
         return userExists;
+        }
 
     } catch (error) {
         console.log(error.message);
         throw error
     };
 };
+
 // GET BY EMAIL CONTROLLER PARAMS
 // const getAllFavoritesFromUser = async (id) => {
 //     let client, result;
@@ -157,6 +180,7 @@ const login = async (username, password) => {
 const Users = {
     getAllUsers,
     getUsersByEmail,
+    getUsersByUsername,
     createUser,
     updateUserByEmail,
     deleteUserByEmail,

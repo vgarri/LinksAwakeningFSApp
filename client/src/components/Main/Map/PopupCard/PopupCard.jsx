@@ -1,15 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { userContext } from "../../../../context/userContext";
 import axios from "axios";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+
 
 const PopupCard = ({ data, index }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+  
   const { loggedUser } = useContext(userContext)
-  // const [favorite, setFavorite] = useState({
-  //   username: "",
-  //   marker_title: ""
-  // });
+
   const [favorites, setFavorites] = useState([]);
+  const [isFavorite, setIsFavorite] = useState(false)
   const addFavorite = (newFav) => {
     setFavorites((prevFavorites) => [...prevFavorites, newFav]); // Agrega un nuevo favorito al array
   };
@@ -18,6 +18,30 @@ const PopupCard = ({ data, index }) => {
     setFavorites(FavoritesNewArray)
   }
 
+  useEffect(() => {
+    const FavCheck = async () => {
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `http://localhost:3000/api/favorites/username?username=${loggedUser.username}`, //http://localhost:3000/api/favorites/username?username=bolito
+  
+        });
+        if (response.status === 200) {
+          const userFavs = response.data;
+          if (userFavs.some(favorite => favorite.marker_title === data.marker_title)) {
+            setIsFavorite(true); 
+          } else {
+            setIsFavorite(false);
+          }
+        }
+  
+      } catch (error) {
+        console.log(error.message);
+      }
+  
+    }
+    FavCheck();
+  },[favorites])
 
 
   const markAsFavorite = async () => {
@@ -31,9 +55,10 @@ const PopupCard = ({ data, index }) => {
         }
 
       });
+       
       if (response.status === 201) {
         alert(`marker: ${data.marker_title} was successfully marked as favorite`)
-
+        setIsFavorite(true);
       }
 
     } catch (error) {
@@ -49,14 +74,14 @@ const PopupCard = ({ data, index }) => {
       });
       if (response.status === 200) {
         alert(`marker: ${data.marker_title} was successfully deleted from favorites`)
-
+        setIsFavorite(false);
       }
 
     } catch (error) {
       console.log(error.message);
     }
   };
-  const handleFavorite = () => {
+  const handleFavorite = async () => {
     addFavorite({
       username: loggedUser.username,
       marker_title: data.marker_title
@@ -73,60 +98,15 @@ const PopupCard = ({ data, index }) => {
     })
     unmarkAsFavorite();
   }
-useEffect(() => {
-  const FavCheck = async () => {
-    try {
-      const response = await axios({
-        method: 'get',
-        url: `http://localhost:3000/api/favorites/username?username=${loggedUser.username}`, //http://localhost:3000/api/favorites/username?username=bolito
 
-      });
-      if (response.status === 200) {
-        const userFavs = response.data;
-        if (userFavs.some(favorite => favorite.marker_title === data.marker_title)) {
-          setIsFavorite(true); 
-        } else {
-          setIsFavorite(false);
-        }
-      }
 
-    } catch (error) {
-      console.log(error.message);
-    }
-
-  }
-  FavCheck();
-},[favorites])
-  //--------comprobacion si esta o no en favs
-  // const favoriteCheck = async () => { // aqui se hace un get y se comprueba
-  //   setNewFavorite({
-  //     username: loggedUser.username,
-  //     marker_title: data.marker_title
-  //   })
-  //   try {
-  //     const response = await axios({
-  //       method: 'delete',
-  //       url: `http://localhost:3000/api/favorites/marker?username=${loggedUser.username}&marker_title=${data.marker_title}`,
-  //     });
-  //     if (response.status === 200) {
-  //       alert(`marker: ${data.marker_title} was successfully deleted from favorites`)
-
-  //     }
-
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
-
-  //}
-  console.log(favorites)
 
   return <section className="popUpCard">
 
     <article className="miniHeader">
       {loggedUser.username != "" ? <>
-        {isFavorite ? <button className="unfav" onClick={() => handleUnFavorite()}><span>💔</span></button>
-          : <button className="fav" onClick={() => handleFavorite()}><span>❤️</span></button>}
+        {isFavorite ? <button className="unfav" onClick={handleUnFavorite}><span>♥</span></button>
+          : <button className="fav" onClick={handleFavorite}><span>♡</span></button>}
       </>
         : ""}
 

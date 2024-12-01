@@ -10,11 +10,14 @@ const Header = () => {
         try {
             await axios({
                 method: 'get',
-                url: 'api/users/'
+                url: 'api/user/logout'
             });
 
             alert(`See You soon ${loggedUser.username}!`)
-            setLoggedUser("");
+            updateLoggedUser({
+                username:"",
+                password: ""
+            });
             //   props.logged.setLogged(false);
         } catch (error) {
             console.log(error.message);
@@ -40,9 +43,9 @@ const Header = () => {
                 <li className="nav-link active"><Link to='/register'>Register</Link></li>
                 <li className="nav-link active"><Link to='/login'>Login</Link></li>
                 <li className="nav-link active"><Link to='/map'>Map</Link></li>
-                <li className="nav-link active"><Link to='/map'>Venues</Link></li>
-                <li className="nav-link active"><Link to='/map'>Upcoming Concerts</Link></li>
-                <li className="nav-link active"><Link to='/map'>Profile</Link></li>
+                <li className="nav-link active"><Link to='/search'>Venues</Link></li>
+                <li className="nav-link active"><Link to='/events'>Upcoming Concerts</Link></li>
+                <li className="nav-link active"><Link to='/profile'>Profile</Link></li>
             </ul >
         </nav >
     </>
