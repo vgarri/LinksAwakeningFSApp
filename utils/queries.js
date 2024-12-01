@@ -5,7 +5,7 @@ const queries = {
     FROM users
     WHERE email=$1;`,
     getUsersByUsername:`   
-    SELECT username,email,password
+    SELECT username,email,password,img
     FROM users
     WHERE username=$1;`,
     getAllUsers: `SELECT u.id,u.username,u.email,u.password,u.img,u.role

@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes, Navigate } from 'react-router-dom';
 import Login from "./Login/Login";
+import Home from "./Home/Home";
 import Register from "./Register/Register";
 import Map from "./Map/Map";
 import Search from "./Search/Search";
@@ -10,7 +11,7 @@ const Main = () => {
   return <>
 
     <Routes>
-      <Route path="/" element={<Login />} />
+      <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login/>} />
       <Route path="/register" element={<Register />} />
       <Route path="/map" element={<Map />} />

@@ -2,11 +2,14 @@ import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
 import { userContext } from "../../../context/userContext";
 import { useNavigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
 
 const Login = (props) => {
+    const navigate = useNavigate();
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
+    const [errMessage, setErrMessage] = useState("");
     const [passwordMessage, setPasswordMessage] = useState("");
     const {updateLoggedUser} = useContext(userContext);
 
@@ -18,11 +21,11 @@ const Login = (props) => {
                     method: 'get',
                     url: 'http://localhost:3000/api/user/',
                 })
-                if(request.data > 0){
+                if(request > 0){
                     console.log("connected to server")
                 };
             } catch (error) {
-                console.log(error.message);
+                console.log(error);
             }
         }
         testConnection();
@@ -60,28 +63,19 @@ const Login = (props) => {
                     password: password
                 });
                 setMessage(`Welcome back, ${username}!`);
-                setTimeout(() => setMessage(""), 3000);
-
-                setUsername("");
-                setPassword("");
-
-                // useNavigate("/map")
+                setTimeout(() => setMessage(""), 2000);
+                navigate('/map');
             }
-            // if (response.status === 400) {
-            //     alert(`Wrong credentials`)
-            // }
 
-            const authHeader = response.headers.authorization;
-
-            axios.defaults.headers.common['Authorization'] = authHeader;
-
+            // const authHeader = response.headers.authorization;
+            // axios.defaults.headers.common['Authorization'] = authHeader;
             // setMessage(`Authorisation Header ${authHeader}`);
-
         } catch (error) {
-            // alert(`Wrong credentials`)
-            setMessage(`Wrong credentials`);
-            setTimeout(() => setMessage(""), 3000);
-            console.log(error.message);
+            setErrMessage(`Wrong credentials`);
+            setTimeout(() => setErrMessage(""), 2000);
+            console.log(errMessage)
+            
+            console.log(error);
         }
     };
 
@@ -91,17 +85,22 @@ const Login = (props) => {
     return <div className="loginForm">
         <input type="text" placeholder="username" onChange={handleUsername} />
         <input type="password" placeholder="password" onChange={handlePassword} />
-        {message ? <article className="messageFlag">
-        {passwordMessage ? <span>{passwordMessage}</span> : ""}
-        <span>{message}</span>
-        </article> : ""}
+        
         
         <article className="botonera">
             <button onClick={handleLogin}>Login</button>
         </article>
+        {message !="" || errMessage !="" || passwordMessage !=""   ? <article className="messageFlag">
+        {errMessage ? <Alert variant="filled" severity="error">{errMessage}</Alert>: "" }
+        {passwordMessage ? <Alert variant="filled"severity="warning">{passwordMessage}</Alert> : ""}
+        {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
+        
+        </article> : ""}
 
     </div>;
 
 };
 
 export default Login;
+
+

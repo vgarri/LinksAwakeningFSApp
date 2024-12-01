@@ -1,7 +1,9 @@
 import React, { useContext, useState, useEffect } from "react";
 import { userContext } from "../../../../context/userContext";
 import axios from "axios";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+
 
 
 const PopupCard = ({ data, index }) => {
@@ -57,7 +59,7 @@ const PopupCard = ({ data, index }) => {
       });
        
       if (response.status === 201) {
-        alert(`marker: ${data.marker_title} was successfully marked as favorite`)
+        // alert(`marker: ${data.marker_title} was successfully marked as favorite`)
         setIsFavorite(true);
       }
 
@@ -73,7 +75,7 @@ const PopupCard = ({ data, index }) => {
         url: `http://localhost:3000/api/favorites/marker?username=${loggedUser.username}&marker_title=${data.marker_title}`,
       });
       if (response.status === 200) {
-        alert(`marker: ${data.marker_title} was successfully deleted from favorites`)
+        // alert(`marker: ${data.marker_title} was successfully deleted from favorites`)
         setIsFavorite(false);
       }
 
@@ -105,8 +107,8 @@ const PopupCard = ({ data, index }) => {
 
     <article className="miniHeader">
       {loggedUser.username != "" ? <>
-        {isFavorite ? <button className="unfav" onClick={handleUnFavorite}><span>♥</span></button>
-          : <button className="fav" onClick={handleFavorite}><span>♡</span></button>}
+        {isFavorite ? <button className="unfav" onClick={handleUnFavorite}><FavoriteIcon/></button>
+          : <button className="fav" onClick={handleFavorite}><FavoriteBorderIcon/></button>}
       </>
         : ""}
 

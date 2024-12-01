@@ -169,5 +169,103 @@
         "address": "C/ de Costanilla de los Ángeles, 20",
         "lat": "40.4164",
         "long": "-3.7058"
+    },
+
+
+
+
+
+
+
+
+
+
+    {
+        "marker_title": "La Sala Juglar",
+        "type": "Theater / Live Music Venue",
+        "url": "http://www.salajuglar.com/",
+        "address": "C/ de los Juglares, 12",
+        "lat": "40.4306",
+        "long": "-3.7182"
+    },
+    {
+        "marker_title": "Círculo de Bellas Artes",
+        "type": "Cultural Center / Event Venue",
+        "url": "https://www.circulobellasartes.com/",
+        "address": "C/ de Alcalá, 42",
+        "lat": "40.4195",
+        "long": "-3.6967"
+    },
+    {
+        "marker_title": "Matadero Madrid",
+        "type": "Cultural Venue / Contemporary Art",
+        "url": "https://www.mataderomadrid.org/",
+        "address": "Paseo de la Chopera, 14",
+        "lat": "40.4070",
+        "long": "-3.7118"
+    },
+    {
+        "marker_title": "El Club de la Guitarra",
+        "type": "Live Music Venue / Guitar Center",
+        "url": "https://www.elclubdelaguitarra.com/",
+        "address": "C/ de Bravo Murillo, 80",
+        "lat": "40.4372",
+        "long": "-3.7154"
+    },
+    {
+        "marker_title": "La Vía Láctea",
+        "type": "Live Music Venue / Bar",
+        "url": "https://www.lavialactea.com/",
+        "address": "C/ de Velarde, 18",
+        "lat": "40.4325",
+        "long": "-3.7099"
+    },
+    {
+        "marker_title": "Nave 73",
+        "type": "Theater / Experimental Music Venue",
+        "url": "http://www.nave73.com/",
+        "address": "C/ de la Ría, 73",
+        "lat": "40.4052",
+        "long": "-3.7148"
+    },
+    {
+        "marker_title": "Café Central",
+        "type": "Jazz Club",
+        "url": "http://www.cafecentralmadrid.com/",
+        "address": "C/ de las Ventas, 7",
+        "lat": "40.4224",
+        "long": "-3.7120"
+    },
+    {
+        "marker_title": "La Riviera",
+        "type": "Concert Hall",
+        "url": "https://www.lariviera.com/",
+        "address": "C/ de Manzanares, 1",
+        "lat": "40.4136",
+        "long": "-3.7112"
+    },
+    {
+        "marker_title": "Sala Morocco",
+        "type": "Live Music Venue",
+        "url": "https://www.salamorocco.com/",
+        "address": "C/ de la Virgen de la Paloma, 7",
+        "lat": "40.4164",
+        "long": "-3.7107"
+    },
+    {
+        "marker_title": "Sala But",
+        "type": "Live Music Venue",
+        "url": "http://www.sala-but.com/",
+        "address": "C/ de las Cortes, 6",
+        "lat": "40.4295",
+        "long": "-3.7030"
+    },
+    {
+        "marker_title": "Sala Villanos",
+        "type": "Live Music Venue",
+        "url": "https://www.salavillanos.com/",
+        "address": "C/ de San Cosme y San Damián, 18",
+        "lat": "40.4235",
+        "long": "-3.7179"
     }
 ]
