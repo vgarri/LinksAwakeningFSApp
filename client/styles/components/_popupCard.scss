@@ -77,3 +77,26 @@
     cursor: pointer;
     transition: border-color 0.25s;
   }
+  .messageFlag{
+    width: auto;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+.miniHeader > button {
+    border: none !important;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: rgb(0, 0, 0)!important;
+
+
+}
+    button:focus,
+    button:focus-visible {
+    outline: none;
+}
+
+

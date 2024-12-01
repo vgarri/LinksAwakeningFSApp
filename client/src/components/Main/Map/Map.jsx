@@ -17,7 +17,9 @@ const Map = () => {
     const getMarkers = async () => {
       try {
         const resp = await axios.get(`http://localhost:3000/api/marker`)
-        console.log(resp.data)
+        if(resp > 0) {
+          console.log("markers received from API")
+        }
         setMarkers(resp.data)
         
       } catch (err) {
@@ -46,7 +48,8 @@ const Map = () => {
   <MapContainer  center={[40.4168, -3.7038]} zoom={13} scrollWheelZoom={false} style={{ height: "100vh", width: "100%" }}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    // url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+    url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
   />
   {renderMarkers()}
 </MapContainer>

@@ -64,6 +64,10 @@ const Register = (props) => {
         alert(`user: ${email} was successfully registered`)
         setMessage(`user: ${email} was successfully registered`);
         setTimeout(() => setMessage(""), 3000);
+        setUsername("");
+        setEmail("");
+        setPassword("");
+        setImg("");
       }
       setMessage(request.data.msg);
     } catch (error) {
@@ -85,7 +89,7 @@ const Register = (props) => {
     <article className="botonera">
       <button onClick={handleRegister}>Register</button>
     </article>
-  
+
     {emailMessage ? <span>{emailMessage}</span> : ""}<br />
     {passwordMessage ? <span>{passwordMessage}</span> : ""}<br />
     <span>{message}</span><br />
