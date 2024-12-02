@@ -35,7 +35,7 @@ const Header = () => {
                 username: "",
                 password: ""
             });
-            navigate('/map')
+            navigate('/home')
             //   props.logged.setLogged(false);
         } catch (error) {
             console.log(error.message);
@@ -44,7 +44,7 @@ const Header = () => {
 
 
 
-
+            // desplegable
         return <>
             <section className="loginVisor">
                 {loggedUser.username != "" ? <>
@@ -66,7 +66,7 @@ const Header = () => {
             <nav className='nav_generic'>
                 <ul className='nav'>
                     <li className="nav-link active"><Link to='/home'><HomeIcon/></Link></li>
-                    <li className="nav-link active"><Link to='/profile'><AccountCircleIcon/></Link></li>
+                    {loggedUser.username !="" ? <li className="nav-link active"><Link to='/profile'><AccountCircleIcon/></Link></li> : ""}
                     <li className="nav-link active"><Link to='/map'><MapTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/search'><SearchTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/events'><CalendarMonthTwoToneIcon/></Link></li>

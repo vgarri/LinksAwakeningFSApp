@@ -35,7 +35,7 @@ const Login = (props) => {
     useEffect(() => {
         const passwordValidation = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^\w\s]).{9,}$/
         if (!passwordValidation.test(password) && password.length > 0) {
-            setPasswordMessage("Password must contain lowecase, uppercase, digit and special character");
+            setPasswordMessage("Password must contain lowercase, uppercase, digits and special character");
         } else {
             setPasswordMessage("");
         }

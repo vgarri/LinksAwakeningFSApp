@@ -1,0 +1,15 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.homeBanner{
+    display: flex;
+    flex-direction: column;
+}
+.homeBanner > h1{
+    font-size: 72px;
+    margin: 20px;
+}
+.homeBanner > h2{
+    font-size: 40px;
+    margin: 20px;
+}
