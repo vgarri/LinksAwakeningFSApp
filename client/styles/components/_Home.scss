@@ -1,0 +1,55 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+.homeBanner{
+    display: flex;
+    flex-direction: column;
+}
+.homeBanner h1{
+    font-style: italic;
+    font-weight: 900;
+    font-family: "Poppins", sans-serif;
+    font-size: 90px;
+}
+.homeBanner h2{
+    font-size: 40px;
+    
+}
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Users/equipped/SalasApp/client/src/assets/pexels-wendywei-1943411.jpg");
+    height: 93.35vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: aliceblue;
+    gap: 120px;
+
+}
+.css-1588512-MuiButtonBase-root-MuiButton-root {
+    color: #fff !important;
+}
+.homeLink{
+    margin: 20px;
+    cursor: pointer;
+    color:#fff;
+    transition: transform 0.3s ease, color 0.3s ease; 
+}
+
+.homeLink:hover {
+    transform: scale(1.1); 
+    color: rgb(255, 139, 253); 
+}
+
+
+
+
+@media screen and (max-width: 600px){
+    .botoneraHome{
+        display:flex;
+        flex-direction: column;
+    }
+}

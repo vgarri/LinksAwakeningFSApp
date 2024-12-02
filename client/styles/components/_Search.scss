@@ -1,0 +1,80 @@
+@import '../utils/variables.scss';
+@import '../utils/mixins.scss';
+
+
+h3,h4,p {
+    margin: 10px;
+    font-size: 20px;
+}
+header{
+    display: flex;
+    justify-content: center;
+
+}
+.stats{
+   padding: 8px;
+   margin: 25px;
+   text-align: left;
+   background-color: white;
+   border-radius: 8px;
+   box-shadow:  7px 7px 5px -1px #646cff;
+}
+
+input[type="text"],
+input[type="password"],
+textarea {
+    font-size: larger;
+    border-radius: 8px;
+    padding: 8px;
+    margin: 10px;
+}
+
+form {
+    display: flex;
+    margin: 10px;
+    justify-content: center;
+    padding: 8px;
+
+}
+.newPokemonForm {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    justify-content: center;
+    padding: 8px;
+
+}
+.newPokemonButton{
+    font-size: xx-large;
+    padding: 8px;
+    margin: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+form > button {
+    font-size: xx-large;
+    padding: 8px;
+    margin: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+
+}
+form > img {
+    padding: 8px;
+    margin: 10px;
+    background: none;
+    border-radius: 900px;
+}
+button:hover {
+    background-color: rgb(217, 173, 230);
+    border-radius: 8px;
+
+}
+.markerList{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

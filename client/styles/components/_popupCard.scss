@@ -1,0 +1,102 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+
+.popUpCard {
+    margin: 2px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+}
+.popUpCard > h2 {
+
+    margin: 20px;
+    font-size: 32px;
+}
+.miniHeader {
+    display: flex;
+    justify-content: right;
+}
+.miniHeader > button{
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: aliceblue;
+    cursor: pointer;
+    transition: border-color 0.25s;
+}
+.popUpCard > img {
+    max-width: 300px;
+    border-radius: 8px;
+    align-self: center;
+}
+.popUpCard > h2 {
+    max-width: 300px;
+}
+.popUpCard > button {
+        border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #bbb4f8;
+        cursor: pointer;
+        transition: border-color 0.25s;
+      }
+      button:hover {
+        border-color: #646cff;
+      }
+      button:focus,
+      button:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+      }
+
+.botonera {
+    display:flex;
+    justify-content: space-evenly;
+}
+.botonera > span{
+    padding: 10px;
+}
+.botonera > button {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    color: aliceblue;
+    cursor: pointer;
+    transition: border-color 0.25s;
+  }
+  .messageFlag{
+    width: auto;
+    margin: 10px;
+    padding: 12px;
+    border-radius: 8px;
+  }
+.miniHeader > button {
+    border: none !important;
+    background-color: white;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    color: rgb(0, 0, 0)!important;
+
+
+}
+    button:focus,
+    button:focus-visible {
+    outline: none;
+}
+
+

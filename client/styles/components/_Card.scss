@@ -1,0 +1,44 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+
+
+
+
+
+
+.pokecard {
+    background-color: $light-blue;
+    margin: 20px;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+
+    @include shadow($blue);
+}
+
+.pokecard > h2 {
+    max-width: 300px;
+}
+.pokecard > button {
+        border-radius: 8px;
+        border: 1px solid transparent;
+        padding: 0.6em 1.2em;
+        font-size: 1em;
+        font-weight: 500;
+        font-family: inherit;
+        background-color: #bbb4f8;
+        cursor: pointer;
+        transition: border-color 0.25s;
+      }
+      button:hover {
+        border-color: #646cff;
+      }
+      button:focus,
+      button:focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+      }
+
+

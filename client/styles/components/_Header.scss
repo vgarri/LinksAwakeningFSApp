@@ -1,0 +1,54 @@
+%nav {
+
+    background-color: $light-blue;
+    // margin: 10px;
+    // border-radius: 8px;
+    // width: 100%;
+    
+    
+    &>input{
+        display:none;
+    }
+
+    &>ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &>li {
+            padding:16px;
+            list-style: none;
+            
+            &:hover{
+                background-color: $blue;
+
+                & a {
+                    color:white;
+                    display: block;
+                    height:100%;
+                    width:100%;
+                }
+            }
+        }
+    }
+}
+
+nav {
+    @extend %nav
+}
+.loginVisor{
+    display: flex;
+    justify-content: right;
+    padding: 10px;
+    margin: 5px;
+}
+.loginVisor > h1{
+    font-size: 8px;
+}
+.spinnerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+}
