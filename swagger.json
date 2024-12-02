@@ -1,0 +1,316 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "MADRID VENUES. Fullstack Application project",
+    "description": "Endpoints del proyecto final de Fullstack",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/api"
+    }
+  ],
+  "paths": {
+    "/defaultmarkers/{id}": {
+      "delete": {
+        "summary": "Delete marker by id",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of the marker to delete",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Marker deleted"
+          }
+        }
+      }
+    },
+    "/marker": {
+      "post": {
+        "summary": "Create marker",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "marker_title": "OchoYMedioClub",
+                "type": "Indie Venue",
+                "url": "https://www.ochoymedioclub.com/",
+                "address": "C/ de las 3 Cruces, 12",
+                "lat": 40.4178,
+                "long": -3.7041
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Marker created"
+          }
+        }
+      },
+      "get": {
+        "summary": "Get all markers",
+        "responses": {
+          "200": {
+            "description": "A list of all markers",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/user": {
+      "get": {
+        "summary": "Get all users",
+        "responses": {
+          "200": {
+            "description": "A list of all users",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "username": "Peluson2",
+                "email": "queso2@gmail.com",
+                "password": "12343aaaaa$Qa",
+                "img": "www.img122.com"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "User created"
+          }
+        }
+      }
+    },
+    "/marker/title": {
+      "get": {
+        "summary": "Get marker by title",
+        "parameters": [
+          {
+            "name": "title",
+            "in": "query",
+            "required": true,
+            "description": "Title of the marker to search for",
+            "schema": {
+              "type": "string",
+              "example": "Wurlitzer Ballroom"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of markers matching the title",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/marker/type": {
+      "get": {
+        "summary": "Get markers by type",
+        "parameters": [
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "Type of the markers to search for",
+            "schema": {
+              "type": "string",
+              "example": "Rock"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of markers matching the type",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/favorites": {
+      "post": {
+        "summary": "Create new favorite",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "username": "ChetoReact",
+                "marker_title": "Wurlitzer Ballroom"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Favorite created"
+          }
+        }
+      }
+    },
+    "/favorites/username": {
+      "get": {
+        "summary": "Get favorites for a user",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "description": "Username to get the favorites for",
+            "schema": {
+              "type": "string",
+              "example": "ChetoReact"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A list of favorites for the given username",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/favorites/marker": {
+      "delete": {
+        "summary": "Delete favorite marker",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "description": "Username associated with the favorite",
+            "schema": {
+              "type": "string",
+              "example": "ChetoReact"
+            }
+          },
+          {
+            "name": "marker_title",
+            "in": "query",
+            "required": true,
+            "description": "Marker title to delete from favorites",
+            "schema": {
+              "type": "string",
+              "example": "OchoYMedioClub"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Favorite marker deleted"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "post": {
+        "summary": "User login",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "username": "bolito",
+                "password": "123456ABc!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Login successful"
+          }
+        }
+      }
+    },
+    "/user/username": {
+      "get": {
+        "summary": "Get user by username",
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "description": "Username to search for",
+            "schema": {
+              "type": "string",
+              "example": "bolito"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "User details",
+            "content": {
+              "application/json": {}
+            }
+          }
+        }
+      }
+    },
+    "/user/email": {
+      "put": {
+        "summary": "Edit user by email",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "query",
+            "required": true,
+            "description": "Email of the user to update",
+            "schema": {
+              "type": "string",
+              "example": "cheto@gmail.com"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "example": {
+                "name": "ChetoReact",
+                "email": "cheto@gmail.com",
+                "password": "123456ABc!",
+                "img": "https://avatars.githubusercontent.com/u/146452699?v=4",
+                "currentEmail": "cheto@gmail.com"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "User updated"
+          }
+        }
+      }
+    }
+  }
+}

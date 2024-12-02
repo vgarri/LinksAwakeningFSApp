@@ -105,7 +105,7 @@ const Profile = () => {
         <article className='profileText'>
         <h1>{userProfile[0].username}</h1>
         <h2>{userProfile[0].email}</h2>
-        <h3>hola</h3>
+        <h3></h3>
         </article>
         <article className="botonera">
           <button>Edit Profile</button>
