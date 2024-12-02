@@ -1,6 +1,12 @@
 @import '../utils/mixins.scss';
 @import '../utils/variables.scss';
 
+
+
+
+
+
+
 .pokecard {
     background-color: $light-blue;
     margin: 20px;
@@ -12,11 +18,7 @@
 
     @include shadow($blue);
 }
-.pokecard > img {
-    max-width: 300px;
-    border-radius: 8px;
-    align-self: center;
-}
+
 .pokecard > h2 {
     max-width: 300px;
 }
@@ -38,4 +40,5 @@
       button:focus-visible {
         outline: 4px auto -webkit-focus-ring-color;
       }
+
 

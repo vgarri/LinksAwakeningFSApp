@@ -3,7 +3,7 @@
     background-color: $light-blue;
     margin: 10px;
     border-radius: 8px;
-    width: 100%;
+    // width: 100%;
     
     
     &>input{
@@ -38,4 +38,13 @@ nav {
 .loginVisor{
     display: flex;
     justify-content: right;
+    padding: 10px;
+    margin: 5px;
+}
+.spinnerDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
 }

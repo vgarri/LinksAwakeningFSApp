@@ -27,7 +27,7 @@ const Home = () => {
   <section>
 
   <Button onClick={handleLoginClick}>Already have an account? </Button>
-  <Button onClick={handleRegisterClick}>Unlock the whole experience </Button>
+  <Button onClick={handleRegisterClick}>Sign up and unlock the whole experience! </Button>
   </section>
   </>;
 };

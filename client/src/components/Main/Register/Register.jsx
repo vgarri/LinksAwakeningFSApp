@@ -1,15 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import axios from 'axios';
+import { userContext } from "../../../context/userContext";
+import { useNavigate } from "react-router-dom";
+import Alert from '@mui/material/Alert';
 
-const Register = (props) => {
+const Register = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [img, setImg] = useState("");
+  const { loggedUser } = useContext(userContext)
+  const { updateLoggedUser, setLoggedUser } = useContext(userContext);
 
   const [message, setMessage] = useState("");
   const [passwordMessage, setPasswordMessage] = useState("");
   const [emailMessage, setEmailMessage] = useState("");
+
 
 
   useEffect(() => {
@@ -61,13 +68,17 @@ const Register = (props) => {
 
       });
       if (request.status === 201) {
-        alert(`user: ${email} was successfully registered`)
         setMessage(`user: ${email} was successfully registered`);
         setTimeout(() => setMessage(""), 3000);
         setUsername("");
         setEmail("");
         setPassword("");
         setImg("");
+        updateLoggedUser({
+          username: username,
+          password: password
+        });
+        navigate('/map')
       }
       setMessage(request.data.msg);
     } catch (error) {
@@ -90,13 +101,21 @@ const Register = (props) => {
       <button onClick={handleRegister}>Register</button>
     </article>
 
-    {emailMessage ? <span>{emailMessage}</span> : ""}<br />
+    {message != "" || emailMessage != "" || passwordMessage != "" ? <article className="messageFlag">
+      {emailMessage ? <Alert variant="filled" severity="info">{emailMessage}</Alert> : ""}
+      {passwordMessage ? <Alert variant="filled" severity="warning">{passwordMessage}</Alert> : ""}
+      {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
+    </article> : ""}
+    {/* {emailMessage ? <span>{emailMessage}</span> : ""}<br />
     {passwordMessage ? <span>{passwordMessage}</span> : ""}<br />
-    <span>{message}</span><br />
+    <span>{message}</span><br /> */}
   </div>;
 
 };
 
 export default Register;
+
+
+
 
 
