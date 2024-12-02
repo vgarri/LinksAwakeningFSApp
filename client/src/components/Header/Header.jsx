@@ -53,10 +53,10 @@ const Header = () => {
             <nav className='nav_generic'>
                 <ul className='nav'>
                     <li className="nav-link active"><Link to='/home'><HomeIcon/></Link></li>
-                    {loggedUser.username !="" ? <li className="nav-link active"><Link to='/profile'><AccountCircleIcon/></Link></li> : ""}
                     <li className="nav-link active"><Link to='/map'><MapTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/search'><SearchTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/events'><CalendarMonthTwoToneIcon/></Link></li>
+                    {loggedUser.username !="" ? <li className="nav-link active"><Link to='/profile'><AccountCircleIcon/></Link></li> : ""}
                     {loggedUser.username !="" ? <li className="nav-link active"><BurgerMenu/></li> : ""}
                     
 

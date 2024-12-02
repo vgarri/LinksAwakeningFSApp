@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require ('cors');
 const path = require('path');
+const swaggerUi = require('swagger-ui-express');
+const swaggerDocument = require('./swagger.json');
 
 const app = express() // inicializar servidor con express
 const port = 3000;
@@ -11,6 +13,7 @@ app.use(morgan(':method :url :status - :response-time ms :body'));
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static(path.join(__dirname, 'client/build')));
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 
 app.use(express.json());

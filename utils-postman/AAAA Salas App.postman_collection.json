@@ -1,0 +1,424 @@
+{
+	"info": {
+		"_postman_id": "f2ab44ff-d7e4-4557-b652-d0bda47771ec",
+		"name": "AAAA Salas App",
+		"description": "endpoints de prueba para el proyecto final de fullstack",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39566229"
+	},
+	"item": [
+		{
+			"name": "delete marker by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"\",\n    \"type\": \"Temple\",\n    \"x\": 0,\n    \"y\": 0,\n    \"z\": 0,\n    \"urlImg\": \"https://i.ytimg.com/vi/Zfi__obHOZI/maxresdefault.jpg\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/defaultmarkers/67420f4a0311373e80ae93ec",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"defaultmarkers",
+						"67420f4a0311373e80ae93ec"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create marker",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"marker_title\": \"OchoYMedioClub\",\n    \"type\": \"Indie Venue\",\n    \"url\":\"https://www.ochoymedioclub.com/\",\n    \"address\": \"C/ de las 3 Cruces, 12\",\n    \"lat\": 40.4178,  \n    \"long\": -3.7041\n   \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/marker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"marker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all markers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/defaultmarkers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"defaultmarkers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"username\": \"Peluson2\",\n        \"email\": \"queso2@gmail.com\",\n        \"password\": \"12343aaaaa$Qa\",\n        \"img\": \"www.img122.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All SQL markers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/marker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"marker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SQL MARKERS Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{ \n    \"title\": \"Wind Fish's Egg\",\n    \"type\": \"Dungeon\",\n    \"x\": 0,\n    \"y\": 0,\n    \"z\": 0\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/marker",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"marker"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by title (1)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/marker/title?title=Kanalet+Castle",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"marker",
+						"title"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "Kanalet+Castle"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get by type (many)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/marker/type?type=Dungeon",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"marker",
+						"type"
+					],
+					"query": [
+						{
+							"key": "type",
+							"value": "Dungeon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "new fav",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"ChetoReact\",\n    \"marker_title\": \"Wurlitzer Ballroom\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/favorites",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"favorites"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "favs for username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/favorites/username?username=ChetoReact",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"favorites",
+						"username"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "ChetoReact"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete fav marker",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/favorites/marker?username=ChetoReact&marker_title=OchoYMedioClub",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"favorites",
+						"marker"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "ChetoReact"
+						},
+						{
+							"key": "marker_title",
+							"value": "OchoYMedioClub"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"bolito\",\n    \"password\": \"123456ABc!\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get user by username",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/user/username?username=bolito",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"username"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "bolito"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "edit user by email",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"ChetoReact\",\n    \"email\": \"cheto@gmail.com\", \n    \"password\": \"123456ABc!\",\n    \"img\":\"https://avatars.githubusercontent.com/u/146452699?v=4\",\n    \"currentEmail\": \"cheto@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/user/email?email=cheto@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user",
+						"email"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "cheto@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
