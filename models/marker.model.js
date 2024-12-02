@@ -24,7 +24,7 @@ const getMarkersByType = async (type) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(queries.getMarkersByType, [type])
+        const data = await client.query(queries.getMarkersByType, [`%${type}%`])
         result = data.rows
         
     } catch (err) {

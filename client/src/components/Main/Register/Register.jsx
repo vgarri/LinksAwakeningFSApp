@@ -91,11 +91,14 @@ const Register = () => {
 
   //username, email, password, img
 
-  return <div className="register">
-    <input type="text" placeholder="username" onChange={handleUsername} /><br />
-    <input type="text" placeholder="email" onChange={handleEmail} /><br />
-    <input type="password" placeholder="password" onChange={handlePassword} /><br />
-    <input type="text" placeholder="img" onChange={handleImg} /><br />
+  return <div className="loginForm">
+    <section className="formHeader">
+      <h1>Sign up</h1>
+    </section>
+    <input type="text" placeholder="username" onChange={handleUsername} />
+    <input type="text" placeholder="email" onChange={handleEmail} />
+    <input type="password" placeholder="password" onChange={handlePassword} />
+    <input type="text" placeholder="img" onChange={handleImg} />
 
     <article className="botonera">
       <button onClick={handleRegister}>Register</button>

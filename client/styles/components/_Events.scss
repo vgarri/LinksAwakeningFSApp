@@ -1,0 +1,30 @@
+@import '../utils/mixins.scss';
+@import '../utils/variables.scss';
+
+
+
+.heroEvents{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/Users/equipped/SalasApp/client/src/assets/pexels-sebastiaan9977-3379261.jpg");
+    height: 94vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    color: aliceblue;
+    gap: 50px;
+}
+.accordionContainer{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.eventsHeader h1{
+    display: flex;
+    flex-direction: column;
+    margin: 2px;
+    font-size: 40px;
+
+}

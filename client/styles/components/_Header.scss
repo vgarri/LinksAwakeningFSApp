@@ -1,8 +1,8 @@
 %nav {
 
     background-color: $light-blue;
-    margin: 10px;
-    border-radius: 8px;
+    // margin: 10px;
+    // border-radius: 8px;
     // width: 100%;
     
     
@@ -13,6 +13,7 @@
     &>ul {
         display: flex;
         justify-content: center;
+        align-items: center;
 
         &>li {
             padding:16px;
@@ -40,6 +41,9 @@ nav {
     justify-content: right;
     padding: 10px;
     margin: 5px;
+}
+.loginVisor > h1{
+    font-size: 8px;
 }
 .spinnerDiv {
     display: flex;

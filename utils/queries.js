@@ -28,12 +28,12 @@ const queries = {
     // ---------------------------------------Markers    
 
 
-
+    
     
     getMarkersByType: `
-    SELECT marker_id,marker_title,type,address,lat,long
+    SELECT marker_id,marker_title,type,address,lat,long,url
     FROM markers
-    WHERE type=$1;`,
+    WHERE type LIKE $1;`,
     getMarkerByTitle: `
     SELECT marker_id,marker_title,type,url,address,lat,long
     FROM markers

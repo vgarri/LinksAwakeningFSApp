@@ -11,7 +11,7 @@ const Login = (props) => {
     const [message, setMessage] = useState("");
     const [errMessage, setErrMessage] = useState("");
     const [passwordMessage, setPasswordMessage] = useState("");
-    const {updateLoggedUser} = useContext(userContext);
+    const { updateLoggedUser } = useContext(userContext);
 
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const Login = (props) => {
                     method: 'get',
                     url: 'http://localhost:3000/api/user/',
                 })
-                if(request > 0){
+                if (request > 0) {
                     console.log("connected to server")
                 };
             } catch (error) {
@@ -74,7 +74,7 @@ const Login = (props) => {
             setErrMessage(`Wrong credentials`);
             setTimeout(() => setErrMessage(""), 2000);
             console.log(errMessage)
-            
+
             console.log(error);
         }
     };
@@ -83,18 +83,21 @@ const Login = (props) => {
 
 
     return <div className="loginForm">
+        <section className="formHeader">
+            <h1>Welcome back!</h1>
+        </section>
         <input type="text" placeholder="username" onChange={handleUsername} />
         <input type="password" placeholder="password" onChange={handlePassword} />
-        
-        
+
+
         <article className="botonera">
             <button onClick={handleLogin}>Login</button>
         </article>
-        {message !="" || errMessage !="" || passwordMessage !=""   ? <article className="messageFlag">
-        {errMessage ? <Alert variant="filled" severity="error">{errMessage}</Alert>: "" }
-        {passwordMessage ? <Alert variant="filled"severity="warning">{passwordMessage}</Alert> : ""}
-        {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
-        
+        {message != "" || errMessage != "" || passwordMessage != "" ? <article className="messageFlag">
+            {errMessage ? <Alert variant="filled" severity="error">{errMessage}</Alert> : ""}
+            {passwordMessage ? <Alert variant="filled" severity="warning">{passwordMessage}</Alert> : ""}
+            {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
+
         </article> : ""}
 
     </div>;

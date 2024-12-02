@@ -10,6 +10,7 @@ const [values, setValues] = useState("");
 const [markers, setMarkers] = useState([]);
 
 const renderMarkerCards = () => {
+  console.log(markers);
   return markers.map((marker, i) => <MarkerCard data={marker} key={uuidv4()} />);
 
 }
@@ -50,7 +51,7 @@ getMarkersByType();
 
 
   return <>
-    <section >
+    <section className="formHeader">
       <h1>Without plans for tonight?</h1>
     </section>
 

@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 
+
+
 const Home = () => {
   const navigate = useNavigate();
 
@@ -12,23 +14,27 @@ const Home = () => {
   }
   const handleRegisterClick = () => {
     navigate('/register')
-    
+
   }
 
   return <>
-  <section className="homeBanner">
-  <h1>Madrid Venues</h1>
-  <h2> Your platform for the best music and shows in Madrid</h2>
-  </section>
+    <div className="hero">
+      <section className="homeBanner">
+        <article>
+        <h1>MADRID</h1>
+        <h1>VENUES</h1>
+        </article>
+        <article>
+        <h3>YOUR PLATFORM FOR THE BEST MUSIC AND SHOWS IN MADRID</h3>
+        </article>
+      </section>
 
+      <section className="botoneraHome">
 
-
-
-  <section>
-
-  <Button onClick={handleLoginClick}>Already have an account? </Button>
-  <Button onClick={handleRegisterClick}>Sign up and unlock the whole experience! </Button>
-  </section>
+        <a className="homeLink" onClick={handleLoginClick}>ALREADY HAVE AN ACCOUNT? LOG IN </a>
+        <a className="homeLink" onClick={handleRegisterClick}>SIGN UP AND UNLOCK THE WHOLE EXPERIENCE! </a>
+      </section>
+    </div>
   </>;
 };
 

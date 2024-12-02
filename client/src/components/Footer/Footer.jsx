@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => {
-  return <div>Madrid Venues (c) 2024, by vgarri</div>;
+  return <p className="footerText">Madrid Venues © 2024, by vgarri</p>;
 };
 
 export default Footer;

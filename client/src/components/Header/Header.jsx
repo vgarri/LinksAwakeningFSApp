@@ -9,6 +9,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import MapTwoToneIcon from '@mui/icons-material/MapTwoTone';
 import SearchTwoToneIcon from '@mui/icons-material/SearchTwoTone';
 import CalendarMonthTwoToneIcon from '@mui/icons-material/CalendarMonthTwoTone';
+import BurgerMenu from "./BurgerMenu/BurgerMenu";
 
 
 
@@ -46,21 +47,7 @@ const Header = () => {
 
             // desplegable
         return <>
-            <section className="loginVisor">
-                {loggedUser.username != "" ? <>
-                    <p>You're logged-in as: {loggedUser.username}</p>
-                    <article className="botonera">
-                        <button onClick={handleLogout}>Log Out</button>
-                    </article>
-                </>
-                    : ""}
 
-            </section>
-            <section className="alertVisor">
-                {logoutMessage != "" ?
-                    <Alert variant="filled" severity="success">{logoutMessage}</Alert>
-                    : ""}
-            </section>
             
 
             <nav className='nav_generic'>
@@ -70,6 +57,7 @@ const Header = () => {
                     <li className="nav-link active"><Link to='/map'><MapTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/search'><SearchTwoToneIcon/></Link></li>
                     <li className="nav-link active"><Link to='/events'><CalendarMonthTwoToneIcon/></Link></li>
+                    {loggedUser.username !="" ? <li className="nav-link active"><BurgerMenu/></li> : ""}
                     
 
                 </ul >

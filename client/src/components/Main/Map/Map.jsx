@@ -45,6 +45,7 @@ const Map = () => {
 
 
   return <>
+  <section className="mapDiv">
   <MapContainer  center={[40.4168, -3.7041]} zoom={14} scrollWheelZoom={false} style={{ height: "100vh", width: "100%" }}>
   <TileLayer
     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -53,6 +54,7 @@ const Map = () => {
   />
   {renderMarkers()}
 </MapContainer>
+</section>
 <Footer />
 </>
 };
