@@ -4,7 +4,7 @@
 .loginForm {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
     margin: 20px;
     border-radius: 8px;
     padding: 20px;
@@ -12,19 +12,54 @@
 
 
 }
-.formHeader{
-    display:flex;
+
+.formHeader {
+    display: flex;
     flex-direction: column;
 
 }
-.formHeader h1{
-    display:flex;
+
+.formHeader h1 {
+    display: flex;
     flex-direction: column;
     font-size: 64px;
     margin: 20px;
-    
+
 }
+
 .loginVisor {
     display: flex;
     flex-direction: column;
+}
+
+@media screen and (min-width: 700px) {
+
+
+    // .formContainer {
+    //     display: flex;
+    //     flex-direction: column;
+    //     align-items: center;
+
+    // }
+
+    .loginForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px;
+        border-radius: 8px;
+        padding: 20px;
+
+
+    }
+
+    input[type="text"],
+    input[type="password"],
+    textarea {
+        font-size: larger;
+        border-radius: 8px;
+        padding: 8px;
+        margin: 10px;
+    }
+
 }

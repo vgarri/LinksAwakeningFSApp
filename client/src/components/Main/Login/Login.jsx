@@ -82,25 +82,27 @@ const Login = (props) => {
 
 
 
-    return <div className="loginForm">
-        <section className="formHeader">
-            <h1>Welcome back!</h1>
-        </section>
-        <input type="text" placeholder="username" onChange={handleUsername} />
-        <input type="password" placeholder="password" onChange={handlePassword} />
+    return <section className="formContainer">
+        <div className="loginForm">
+            <section className="formHeader">
+                <h1>Welcome back!</h1>
+            </section>
+            <input type="text" placeholder="username" onChange={handleUsername} />
+            <input type="password" placeholder="password" onChange={handlePassword} />
 
 
-        <article className="botonera">
-            <button onClick={handleLogin}>Login</button>
-        </article>
-        {message != "" || errMessage != "" || passwordMessage != "" ? <article className="messageFlag">
-            {errMessage ? <Alert variant="filled" severity="error">{errMessage}</Alert> : ""}
-            {passwordMessage ? <Alert variant="filled" severity="warning">{passwordMessage}</Alert> : ""}
-            {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
+            <article className="botonera">
+                <button onClick={handleLogin}>Login</button>
+            </article>
+            {message != "" || errMessage != "" || passwordMessage != "" ? <article className="messageFlag">
+                {errMessage ? <Alert variant="filled" severity="error">{errMessage}</Alert> : ""}
+                {passwordMessage ? <Alert variant="filled" severity="warning">{passwordMessage}</Alert> : ""}
+                {message ? <Alert variant="filled" severity="success">{message}</Alert> : ""}
 
-        </article> : ""}
+            </article> : ""}
 
-    </div>;
+        </div>
+    </section>;
 
 };
 
