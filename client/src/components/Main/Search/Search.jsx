@@ -31,7 +31,7 @@ useEffect(()=>{
     try {
       const response = await axios({
         method: 'get',
-        url: `http://localhost:3000/api/marker/type?type=${values}`,
+        url: `https://salasapp.onrender.com/api/marker/type?type=${values}`,
 
       });
       if (response.status === 200) {

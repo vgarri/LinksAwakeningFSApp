@@ -63,7 +63,7 @@ const Register = () => {
     try {
       const request = await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/user/',
+        url: 'https://salasapp.onrender.com/api/user/',
         data: { username, email, password, img }
 
       });
