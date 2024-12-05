@@ -25,7 +25,7 @@ const PopupCard = ({ data, index }) => {
       try {
         const response = await axios({
           method: 'get',
-          url: `http://localhost:3000/api/favorites/username?username=${loggedUser.username}`, //http://localhost:3000/api/favorites/username?username=bolito
+          url: `https://salasapp.onrender.com/api/favorites/username?username=${loggedUser.username}`, //https://salasapp.onrender.com/api/favorites/username?username=bolito
   
         });
         if (response.status === 200) {
@@ -50,7 +50,7 @@ const PopupCard = ({ data, index }) => {
     try {
       const response = await axios({
         method: 'post',
-        url: 'http://localhost:3000/api/favorites',
+        url: 'https://salasapp.onrender.com/api/favorites',
         data: {
           username: loggedUser.username,
           marker_title: data.marker_title
@@ -72,7 +72,7 @@ const PopupCard = ({ data, index }) => {
     try {
       const response = await axios({
         method: 'delete',
-        url: `http://localhost:3000/api/favorites/marker?username=${loggedUser.username}&marker_title=${data.marker_title}`,
+        url: `https://salasapp.onrender.com/api/favorites/marker?username=${loggedUser.username}&marker_title=${data.marker_title}`,
       });
       if (response.status === 200) {
         // alert(`marker: ${data.marker_title} was successfully deleted from favorites`)

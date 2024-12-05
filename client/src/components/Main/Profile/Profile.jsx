@@ -35,7 +35,7 @@ const Profile = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `http://localhost:3000/api/user/username?username=${loggedUser.username}`, //http://localhost:3000/api/favorites/username?username=bolito
+          url: `https://salasapp.onrender.com/api/user/username?username=${loggedUser.username}`, //https://salasapp.onrender.com/api/favorites/username?username=bolito
 
         });
         if (response.status === 200) {
@@ -58,7 +58,7 @@ const Profile = () => {
       try {
         const response = await axios({
           method: 'get',
-          url: `http://localhost:3000/api/favorites/username?username=${loggedUser.username}`, //http://localhost:3000/api/favorites/username?username=bolito
+          url: `https://salasapp.onrender.com/api/favorites/username?username=${loggedUser.username}`, //https://salasapp.onrender.com/api/favorites/username?username=bolito
 
         });
         if (response.status === 200) {

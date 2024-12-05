@@ -19,7 +19,7 @@ const Login = (props) => {
             try {
                 const request = await axios({
                     method: 'get',
-                    url: 'http://localhost:3000/api/user/',
+                    url: 'https://salasapp.onrender.com/api/user',
                 })
                 if (request > 0) {
                     console.log("connected to server")
@@ -51,7 +51,7 @@ const Login = (props) => {
         try {
             const response = await axios({
                 method: 'post',
-                url: 'http://localhost:3000/api/user/login',
+                url: 'https://salasapp.onrender.com/api/user/login',
                 data: { username, password },
                 withCredentials: true
             });

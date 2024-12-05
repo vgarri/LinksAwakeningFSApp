@@ -16,7 +16,7 @@ const Map = () => {
   useEffect(() => {
     const getMarkers = async () => {
       try {
-        const resp = await axios.get(`http://localhost:3000/api/marker`)
+        const resp = await axios.get(`https://salasapp.onrender.com/api/marker`)
         if(resp > 0) {
           console.log("markers received from API")
         }
