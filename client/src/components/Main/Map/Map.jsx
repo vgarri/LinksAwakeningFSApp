@@ -5,6 +5,11 @@ import PopupCard from "./PopupCard/PopupCard";
 import axios from "axios";
 import Footer from "../../Footer/Footer";
 import { userContext } from "../../../context/userContext";
+import icon from "leaflet/dist/images/marker-icon.png";
+import L from "leaflet";
+import iconShadow from "leaflet/dist/images/marker-shadow.png";
+
+
 
 const Map = () => {
   // const markers=[[40.4168, -3.7038],[40.4178, -3.7030],[40.4237, -3.7034]] //pruebas
@@ -12,7 +17,11 @@ const Map = () => {
   const [markers, setMarkers] = useState([]);
   const [newFavorite, setNewFavorite] = useState("");
   const {loggedUser} = useContext(userContext)
-  
+  let DefaultIcon = L.icon({
+    iconUrl: icon,
+    shadowUrl: iconShadow,
+  });
+  L.Marker.prototype.options.icon = DefaultIcon
   useEffect(() => {
     const getMarkers = async () => {
       try {
